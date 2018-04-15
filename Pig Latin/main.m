@@ -11,8 +11,6 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
         
         NSLog(@"> ");
         char str[100];
@@ -21,8 +19,8 @@ int main(int argc, const char * argv[]) {
         NSString *inputString = [[NSString alloc] initWithUTF8String:str];
         inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
-        NSLog(@"input: \"%@\"", inputString);
-        NSLog(@"%@", [inputString stringByPigLatinization]);
+        NSLog(@"input: %@", inputString);
+        NSLog(@"pig latin: %@", [inputString stringByPigLatinization]);
         
         
     }

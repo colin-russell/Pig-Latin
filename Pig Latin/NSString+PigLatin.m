@@ -23,38 +23,21 @@
         [wordPlace getCharacters:buffer range:NSMakeRange(0, len)];
         NSMutableString *mutableString = [wordPlace mutableCopy];
         
-        NSMutableString *consonantString = [NSMutableString new];//[NSMutableString stringWithFormat:@"%c", buffer[0]];
+        NSMutableString *consonantString = [NSMutableString new];
         
-        NSInteger place = 0;
-        for(NSInteger i = 0; i < len; i++) {
-
+        NSInteger i;
+        for(i = 0; i < len; i++) {
             
-            if (buffer[i] == 'a' | buffer[i] == 'e' | buffer[i] == 'i' | buffer[i] == 'o' | buffer[i] == 'u'){
-                
-                NSLog(@"buffer: %c", buffer[i]);
-                if (i == 0)
-                    [consonantString appendString:@"|"];
-                
-                //place = i+1;
-                place = i;
-                //i = len; // end loop
-                break; // end loop
-            }
+            if (buffer[i] == 'a' | buffer[i] == 'e' | buffer[i] == 'i' | buffer[i] == 'o' | buffer[i] == 'u')
+                break; // end loop if it reaches a vowel
             
             [consonantString appendString:[NSString stringWithFormat:@"%c", buffer[i]]];
-
         }
-        
-        //if (place == 0)
-          //  place ++;
-        NSLog(@"consonantString %@", consonantString);
-
+  
         [mutableString appendString:[NSString stringWithFormat:@"%@ay", consonantString]];
-        NSString *appendedWord = [mutableString substringFromIndex:place];
+        NSString *appendedWord = [mutableString substringFromIndex:i];
         [appendedString appendFormat:@"%@ ", appendedWord];
     }
-    
-    
     
     return appendedString;
 }
